@@ -244,8 +244,8 @@ li {
     line-height: 40px;
     border-radius: 2px 0 0 2px;
     border-radius: 50%;
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
 }
 
 
