@@ -15,8 +15,8 @@ if(isset($_POST['email'])) {
     }
  
  
-    // validation expected data exists
-    if(!isset($_POST['taskOption']) ||
+   // validation expected data exists
+    if(!isset($_POST['task']) ||
         !isset($_POST['nome']) ||
         !isset($_POST['email']) ||      
         !isset($_POST['empresa']) ||
@@ -24,13 +24,16 @@ if(isset($_POST['email'])) {
         died('Desculpe, mas encontramos erros no preenchimento do formulário.');       
     }
 
-    if(isset($_POST['taskOption'])){
-      $donat = $_POST['taskOption'];
+    $info = '';
+    if(isset($_POST['task'])){
+      $donat = $_POST['task'];
       switch ($donat) {
         case 'money':
+          $info = "Forma de pagamento: ".clean_string($_POST['money'])."\n";
           echo 'this is value1<br/>';
           break;
-      case 'hardware':
+        case 'hardware':
+          $info = "País de origem: ".clean_string($_POST['hardware'])."\n";
           echo 'value2<br/>';
           break;
       
@@ -40,7 +43,7 @@ if(isset($_POST['email'])) {
       }
   }
  
-    $donat = $_POST['taskOption']; // required
+    $donat = $_POST['task']; // required
     $first_name = $_POST['nome']; // required
     $email_from = $_POST['email']; // required 
     $company = $_POST['empresa']; // not required
@@ -77,6 +80,7 @@ if(isset($_POST['email'])) {
  
      
     $email_message .= "Tipo de doação: ".clean_string($donat)."\n";
+    $email_message .= clean_string($info);
     $email_message .= "Nome: ".clean_string($first_name)."\n";
     $email_message .= "Email: ".clean_string($email_from)."\n";
     $email_message .= "Empresa: ".clean_string($company)."\n";
