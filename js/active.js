@@ -48,7 +48,7 @@
     // ScrollUp Active Code
     if ($.fn.scrollUp) {
         $.scrollUp({
-            scrollSpeed: 1500,
+            scrollSpeed: 500,
             scrollText: '<img src="img/core-img/banana.png" title="Clique para Subir" aria-hidden="true"></i>'
         });
     }
